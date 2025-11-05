@@ -5,8 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "npx vite build",
-    "preview": "npx vite preview"
+    "build": "node node_modules/vite/bin/vite.js build",
+    "preview": "node node_modules/vite/bin/vite.js preview",
+    "postinstall": "node -e \"try { require('fs').chmodSync('node_modules/vite/bin/vite.js', 0o755); console.log('set exec permissions for vite'); } catch (e) { console.log('skip chmod on Windows'); }\""
   },
   "dependencies": {
     "react": "^18.3.1",
